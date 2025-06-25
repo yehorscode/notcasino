@@ -1,0 +1,6 @@
+// This file is used by Vercel to detect the project and run the correct build steps
+{
+  "scripts": {
+    "build": "vite build"
+  }
+}
