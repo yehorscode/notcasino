@@ -10,6 +10,7 @@ import money from "@/assets/slots/money.png";
 import seven from "@/assets/slots/seven.png";
 import watermelon from "@/assets/slots/watermelon.png";
 import { Button } from "@/components/ui/button";
+import anton from "@/assets/images/anton.png"
 
 import confetti from "canvas-confetti";
 
@@ -230,6 +231,10 @@ export default function Slots() {
                     animation: wiggle 1.2s infinite;
                 }
             `}</style>
+            <div className="absolute top-0 right-0 w-70">
+                <img src={anton} className="w-70" alt="" />
+                <span>keep gambling i believe in u</span>
+            </div>
         </div>
     );
 }
