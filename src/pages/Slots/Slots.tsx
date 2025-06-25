@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import bar from "@/assets/slots/bar.png";
 import bell from "@/assets/slots/bell.png";
 import cherries from "@/assets/slots/cherries.png";

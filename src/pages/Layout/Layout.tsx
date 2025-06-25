@@ -1,12 +1,10 @@
 import {
     NavigationMenu,
     NavigationMenuContent,
-    NavigationMenuIndicator,
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import { Link } from "@radix-ui/react-navigation-menu";
 import { Outlet } from "react-router-dom";
