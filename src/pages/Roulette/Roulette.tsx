@@ -239,6 +239,7 @@ export default function Roulette() {
                     Odd
                 </Button>
             </div>
+            <span className="opacity-30 font-mono mt-20">Note: sergei is drunk so he places the bar wrong and can make mistakes</span>
         </div>
     );
 }
