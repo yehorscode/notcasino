@@ -10,7 +10,8 @@ import money from "@/assets/slots/money.png";
 import seven from "@/assets/slots/seven.png";
 import watermelon from "@/assets/slots/watermelon.png";
 import { Button } from "@/components/ui/button";
-import anton from "@/assets/images/anton.png"
+import anton from "@/assets/images/anton.png";
+import letsgo from "@/assets/sounds/letsgo.mp3";
 
 import confetti from "canvas-confetti";
 
@@ -102,9 +103,30 @@ export default function Slots() {
     });
     const [funMsg, setFunMsg] = useState(FUN_MESSAGES[0]);
     const [shake, setShake] = useState(false);
+    const [firstSpin, setFirstSpin] = useState(true);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const letsGoAudioRef = useRef<HTMLAudioElement | null>(null);
+
+    function playLetsGoSound(force = false) {
+        if (!letsGoAudioRef.current) {
+            letsGoAudioRef.current = new Audio(letsgo);
+        }
+        const audio = letsGoAudioRef.current;
+        audio.currentTime = 0;
+        if (force) {
+            audio.play();
+        } else if (Math.random() < 0.5) {
+            audio.play();
+        }
+    }
 
     function spin() {
+        if (firstSpin) {
+            playLetsGoSound(true);
+            setFirstSpin(false);
+        } else {
+            playLetsGoSound();
+        }
         setSpinning(true);
         setShowFireworks(false);
         setWin({ type: null, payout: 0 });
@@ -176,6 +198,7 @@ export default function Slots() {
                     />
                 ))}
             </div>
+            <span className="text-sm opacity-40">Sound is property of radxflipnote</span>
             <Button
                 onClick={spin}
                 className="bg-yellow-500 px-14 py-8 text-2xl text-white rounded-full font-extrabold shadow-2xl border-4 animate-wiggle"
